@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dvvfc15yy1pa1"]
+
+[ext_resource type="Texture2D" uid="uid://cw186x6bgyt4i" path="res://assets/textures/icons/Wood.png" id="1_hsxl5"]
+[ext_resource type="Script" uid="uid://bj0jpqgdc6wef" path="res://scripts/resources/item_data.gd" id="2_hsxl5"]
+
+[resource]
+script = ExtResource("2_hsxl5")
+id = "wood"
+name = "木头"
+icon = ExtResource("1_hsxl5")
+max_stack_size = 99
+metadata/_custom_type_script = "uid://bj0jpqgdc6wef"

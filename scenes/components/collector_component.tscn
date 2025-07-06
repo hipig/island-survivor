@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://do8y4gwpkp5ca"]
+
+[ext_resource type="Script" uid="uid://syeh3x8wdata" path="res://scenes/components/collector_component.gd" id="1_25c2m"]
+
+[node name="CollectorComponent" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_25c2m")

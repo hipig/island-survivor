@@ -1,0 +1,68 @@
+[gd_scene load_steps=15 format=3 uid="uid://ddre63yhelitl"]
+
+[ext_resource type="Shader" uid="uid://do54wl5qwnt8o" path="res://resouces/shaders/shake.gdshader" id="1_flta1"]
+[ext_resource type="Script" uid="uid://c87gjg7lw462e" path="res://scenes/objects/tree/tree.gd" id="1_q2gal"]
+[ext_resource type="PackedScene" uid="uid://dolilc6aroiyc" path="res://scenes/components/select/selectable_component.tscn" id="2_83v3r"]
+[ext_resource type="Texture2D" uid="uid://c4t2g56fbwisn" path="res://assets/textures/objects/tree/Tree_medium_1.png" id="2_flta1"]
+[ext_resource type="PackedScene" uid="uid://rs67xfqwprce" path="res://scenes/components/health_component.tscn" id="3_xtxlg"]
+[ext_resource type="PackedScene" uid="uid://dpq4g78xcwp4d" path="res://scenes/components/hurt_box_component.tscn" id="4_q2gal"]
+[ext_resource type="PackedScene" uid="uid://cr1duhhcqis47" path="res://scenes/components/drop_component.tscn" id="7_cl0qo"]
+[ext_resource type="Script" uid="uid://crp336opb0cxp" path="res://scripts/resources/drop_data.gd" id="8_cl0qo"]
+[ext_resource type="Resource" uid="uid://dvvfc15yy1pa1" path="res://resouces/items/wood.tres" id="9_m7vnl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flta1"]
+resource_local_to_scene = true
+shader = ExtResource("1_flta1")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flta1"]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83v3r"]
+size = Vector2(26, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtxlg"]
+size = Vector2(24, 27)
+
+[sub_resource type="Resource" id="Resource_m7vnl"]
+script = ExtResource("8_cl0qo")
+item_data = ExtResource("9_m7vnl")
+probability = 100.0
+min_amount = 1
+max_amount = 1
+metadata/_custom_type_script = "uid://crp336opb0cxp"
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_q2gal")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_flta1")
+position = Vector2(0, -7)
+texture = ExtResource("2_flta1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_flta1")
+
+[node name="SelectableComponent" parent="." instance=ExtResource("2_83v3r")]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent"]
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_83v3r")
+debug_color = Color(0.197849, 0.513349, 1, 0.42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_xtxlg")]
+max_health = 2.0
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("4_q2gal")]
+required_damage_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_xtxlg")
+debug_color = Color(0.789473, 0.42961, 0, 0.42)
+
+[node name="DropComponent" parent="." instance=ExtResource("7_cl0qo")]
+drop_list = Array[ExtResource("8_cl0qo")]([SubResource("Resource_m7vnl")])

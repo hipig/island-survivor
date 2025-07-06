@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c82okyf1k0c55"]
+
+[ext_resource type="TileSet" uid="uid://8oak5k7kv0m6" path="res://resouces/tilesets/object.tres" id="1_rwc7r"]
+[ext_resource type="PackedScene" uid="uid://dolilc6aroiyc" path="res://scenes/components/select/selectable_component.tscn" id="2_1bff3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lwb8"]
+size = Vector2(18, 28)
+
+[node name="SmallTree" type="Node2D"]
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_rwc7r")
+
+[node name="SelectableComponent" parent="." instance=ExtResource("2_1bff3")]
+position = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent"]
+position = Vector2(0, 23)
+shape = SubResource("RectangleShape2D_4lwb8")
+debug_color = Color(0.0913918, 0.540615, 0.944712, 0.42)

@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://brbo7u0xl0k8d"]
+
+[ext_resource type="Texture2D" uid="uid://wgpbvb07vusl" path="res://assets/textures/objects/rock/Rock_2.png" id="1_6kv1k"]
+[ext_resource type="Texture2D" uid="uid://cxth1cnqpybjj" path="res://assets/textures/objects/rock/Rock_3.png" id="2_lqiiy"]
+[ext_resource type="Texture2D" uid="uid://d3yt2nnv1hdoi" path="res://assets/textures/objects/rock/Rock_4.png" id="3_7sljv"]
+[ext_resource type="PackedScene" uid="uid://dolilc6aroiyc" path="res://scenes/components/select/selectable_component.tscn" id="4_v3gp0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cr7i7"]
+texture = ExtResource("1_6kv1k")
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.2699, -10.0066, -6.05662, -10.2699, -6.1152, -6.29505, -10.2519, -6.65477)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xpmjl"]
+texture = ExtResource("2_lqiiy")
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.2699, -10.2699, -4.47663, -10.5332, -4.2133, -5.52995, -10.2699, -5.52995)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y7koi"]
+texture = ExtResource("3_7sljv")
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.7966, -11.5866, -3.94997, -11.3232, -4.2133, -5.52995, -10.2699, -5.52995)
+
+[sub_resource type="TileSet" id="TileSet_hvlyx"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_cr7i7")
+sources/2 = SubResource("TileSetAtlasSource_xpmjl")
+sources/3 = SubResource("TileSetAtlasSource_y7koi")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmwkv"]
+radius = 5.0
+height = 12.0
+
+[node name="Rock" type="Node2D"]
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_hvlyx")
+
+[node name="SelectableComponent" parent="." instance=ExtResource("4_v3gp0")]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent"]
+position = Vector2(0, 12)
+shape = SubResource("CapsuleShape2D_dmwkv")

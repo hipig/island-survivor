@@ -1,0 +1,23 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://8oak5k7kv0m6"]
+
+[ext_resource type="Texture2D" uid="uid://c4t2g56fbwisn" path="res://assets/textures/objects/tree/Tree_medium_1.png" id="1_mqm5p"]
+[ext_resource type="Texture2D" uid="uid://bjqqfy68xd6go" path="res://assets/textures/objects/tree/Tree_small_1.png" id="2_gnjyn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o5s73"]
+texture = ExtResource("1_mqm5p")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(8, 0)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.6225, 2.39392, -4.35258, 2.61155, -4.13495, 10.0109, -12.4049, 10.0109)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp28h"]
+texture = ExtResource("2_gnjyn")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(8, 16)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.5343, -11.5343, -4.24377, -11.9696, -4.24377, -8, -10.9903, -7.83465)
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_o5s73")
+sources/2 = SubResource("TileSetAtlasSource_pp28h")

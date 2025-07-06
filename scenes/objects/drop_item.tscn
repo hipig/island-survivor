@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c33r43qqieyww"]
+
+[ext_resource type="Script" uid="uid://cxtkidhghi5nh" path="res://scenes/objects/drop_item.gd" id="1_avoar"]
+
+[node name="DropItem" type="Node2D"]
+script = ExtResource("1_avoar")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
