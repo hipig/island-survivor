@@ -17,21 +17,22 @@ shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flta1"]
-radius = 3.0
+radius = 2.0
 height = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83v3r"]
 size = Vector2(26, 29)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtxlg"]
-size = Vector2(24, 27)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7vnl"]
+radius = 11.0
+height = 22.0
 
 [sub_resource type="Resource" id="Resource_m7vnl"]
 script = ExtResource("8_cl0qo")
-item_data = ExtResource("9_m7vnl")
+item = ExtResource("9_m7vnl")
 probability = 100.0
-min_amount = 1
-max_amount = 1
+min_amount = 2
+max_amount = 2
 metadata/_custom_type_script = "uid://crp336opb0cxp"
 
 [node name="Tree" type="StaticBody2D"]
@@ -43,6 +44,7 @@ position = Vector2(0, -7)
 texture = ExtResource("2_flta1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_flta1")
 
 [node name="SelectableComponent" parent="." instance=ExtResource("2_83v3r")]
@@ -57,11 +59,11 @@ debug_color = Color(0.197849, 0.513349, 1, 0.42)
 max_health = 2.0
 
 [node name="HurtBoxComponent" parent="." instance=ExtResource("4_q2gal")]
-required_damage_type = 1
+required_tool_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
 position = Vector2(0, -9.5)
-shape = SubResource("RectangleShape2D_xtxlg")
+shape = SubResource("CapsuleShape2D_m7vnl")
 debug_color = Color(0.789473, 0.42961, 0, 0.42)
 
 [node name="DropComponent" parent="." instance=ExtResource("7_cl0qo")]

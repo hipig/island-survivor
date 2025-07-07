@@ -15,6 +15,7 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Map"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_g61je")
 
 [node name="TileMap" type="Node2D" parent="Map"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ToolItemData" load_steps=3 format=3 uid="uid://dufhcm2jphbrb"]
+
+[ext_resource type="Script" uid="uid://5gpws56n58ce" path="res://scripts/resources/tool_item_data.gd" id="1_uomid"]
+[ext_resource type="Texture2D" uid="uid://b7xq7l1amrhur" path="res://assets/textures/icons/tool/Axe.png" id="1_x3pxk"]
+
+[resource]
+script = ExtResource("1_uomid")
+level = 1
+max_level = 10
+id = "axe"
+name = "斧子"
+icon = ExtResource("1_x3pxk")
+max_stack_size = 1
+metadata/_custom_type_script = "uid://5gpws56n58ce"

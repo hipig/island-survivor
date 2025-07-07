@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ToolItemData" load_steps=3 format=3 uid="uid://bjlb6n80uh11u"]
+
+[ext_resource type="Texture2D" uid="uid://c4undj42ujfw8" path="res://assets/textures/icons/tool/PickAxe.png" id="1_mse6l"]
+[ext_resource type="Script" uid="uid://5gpws56n58ce" path="res://scripts/resources/tool_item_data.gd" id="1_phqs3"]
+
+[resource]
+script = ExtResource("1_phqs3")
+level = 1
+max_level = 10
+id = "pick_axe"
+name = "十字镐"
+icon = ExtResource("1_mse6l")
+max_stack_size = 1
+metadata/_custom_type_script = "uid://5gpws56n58ce"

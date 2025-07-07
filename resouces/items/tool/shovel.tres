@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ToolItemData" load_steps=3 format=3 uid="uid://db8mpcye7f71v"]
+
+[ext_resource type="Texture2D" uid="uid://ckxm2ods0u5bm" path="res://assets/textures/icons/tool/Shovel.png" id="1_eswks"]
+[ext_resource type="Script" uid="uid://5gpws56n58ce" path="res://scripts/resources/tool_item_data.gd" id="1_yfvul"]
+
+[resource]
+script = ExtResource("1_yfvul")
+level = 1
+max_level = 10
+id = "shovel"
+name = "铲子"
+icon = ExtResource("1_eswks")
+max_stack_size = 1
+metadata/_custom_type_script = "uid://5gpws56n58ce"

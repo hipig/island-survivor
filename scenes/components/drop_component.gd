@@ -4,36 +4,26 @@ class_name DropComponent
 const DROP_ITEM = preload("res://scenes/objects/drop_item.tscn")
 
 @export var drop_list: Array[DropData]
-@export var min_force: float = 0.0
-@export var max_force: float = 100.0
-@export var magnet_radius: float = 100.0
-@export var magnet_speed: float = 200.0
-
-@export var min_horizontal_offset: float = 40.0
+@export var min_horizontal_offset: float = 30.0
 @export var max_horizontal_offset: float = 60.0
 @export var bounce_height: float = 30.0
 @export var drop_duration: float = 0.4
 
-var drops: Array[DropItem] = []
-var owner_body: Node2D
-var collectors: Array[Node2D] = []
-
 func drop_items(body: Node2D) -> void:
 	if drop_list.size() == 0:
 		return
-		
-	owner_body = body
-	generate_drops()
+
+	generate_drops(body)
 	
-func generate_drops() -> void:
+func generate_drops(body: Node2D) -> void:
 	for i in drop_list.size():
-		if drop_list[ i ] == null or drop_list[ i ].item_data == null:
+		if drop_list[ i ] == null or drop_list[ i ].item == null:
 			continue
 		var drop_count: int = drop_list[ i ].get_drop_count()
 		for j in drop_count:
 			var drop : DropItem = DROP_ITEM.instantiate() as DropItem
-			drop.item_data = drop_list[ i ].item_data
-			drop.owner_body = owner_body
+			drop.item_data = drop_list[ i ].item
+			drop.owner_body = body
 			Groups.entities_layer.add_child(drop)
 			drop.global_position = global_position
 			start_drop(drop)

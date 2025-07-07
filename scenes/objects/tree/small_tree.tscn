@@ -1,23 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://c82okyf1k0c55"]
+[gd_scene load_steps=15 format=3 uid="uid://dlk3j0auyhr5x"]
 
-[ext_resource type="TileSet" uid="uid://8oak5k7kv0m6" path="res://resouces/tilesets/object.tres" id="1_rwc7r"]
+[ext_resource type="Script" uid="uid://c87gjg7lw462e" path="res://scenes/objects/tree/tree.gd" id="1_wyv3c"]
 [ext_resource type="PackedScene" uid="uid://dolilc6aroiyc" path="res://scenes/components/select/selectable_component.tscn" id="2_1bff3"]
+[ext_resource type="Shader" uid="uid://do54wl5qwnt8o" path="res://resouces/shaders/shake.gdshader" id="2_3vl1u"]
+[ext_resource type="Texture2D" uid="uid://bjqqfy68xd6go" path="res://assets/textures/objects/tree/Tree_small_1.png" id="3_wyv3c"]
+[ext_resource type="PackedScene" uid="uid://rs67xfqwprce" path="res://scenes/components/health_component.tscn" id="5_cfd3k"]
+[ext_resource type="PackedScene" uid="uid://dpq4g78xcwp4d" path="res://scenes/components/hurt_box_component.tscn" id="6_3l0xa"]
+[ext_resource type="PackedScene" uid="uid://cr1duhhcqis47" path="res://scenes/components/drop_component.tscn" id="7_kel3k"]
+[ext_resource type="Script" uid="uid://crp336opb0cxp" path="res://scripts/resources/drop_data.gd" id="8_wkjxe"]
+[ext_resource type="Resource" uid="uid://dvvfc15yy1pa1" path="res://resouces/items/wood.tres" id="9_fyb5u"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lwb8"]
-size = Vector2(18, 28)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flta1"]
+resource_local_to_scene = true
+shader = ExtResource("2_3vl1u")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
-[node name="SmallTree" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flta1"]
+radius = 2.0
+height = 6.0
 
-[node name="TileMap" type="Node2D" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83v3r"]
+size = Vector2(20, 29)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0)
-tile_set = ExtResource("1_rwc7r")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7vnl"]
+radius = 7.0
+height = 23.0
+
+[sub_resource type="Resource" id="Resource_m7vnl"]
+script = ExtResource("8_wkjxe")
+item = ExtResource("9_fyb5u")
+probability = 100.0
+min_amount = 1
+max_amount = 1
+metadata/_custom_type_script = "uid://crp336opb0cxp"
+
+[node name="SmallTree" type="StaticBody2D"]
+script = ExtResource("1_wyv3c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_flta1")
+position = Vector2(0, -7)
+texture = ExtResource("3_wyv3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_flta1")
 
 [node name="SelectableComponent" parent="." instance=ExtResource("2_1bff3")]
-position = Vector2(0, -32)
+position = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent"]
-position = Vector2(0, 23)
-shape = SubResource("RectangleShape2D_4lwb8")
-debug_color = Color(0.0913918, 0.540615, 0.944712, 0.42)
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_83v3r")
+debug_color = Color(0.197849, 0.513349, 1, 0.42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_cfd3k")]
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("6_3l0xa")]
+required_tool_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(0, -9.5)
+shape = SubResource("CapsuleShape2D_m7vnl")
+debug_color = Color(0.789473, 0.42961, 0, 0.42)
+
+[node name="DropComponent" parent="." instance=ExtResource("7_kel3k")]
+drop_list = Array[ExtResource("8_wkjxe")]([SubResource("Resource_m7vnl")])

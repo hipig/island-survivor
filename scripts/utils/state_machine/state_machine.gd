@@ -36,6 +36,7 @@ func transition_to(state_name: String) -> void:
 	var new_state = states.get(state_name.to_lower())
 	
 	if !new_state:
+		push_warning(state_name + " 状态不存在")
 		return
 	
 	if current_state:
