@@ -37,6 +37,10 @@ folder_colors={
 "res://scripts/": "purple"
 }
 
+[gui]
+
+theme/custom="uid://dfvn72ic701oj"
+
 [input]
 
 move_up={

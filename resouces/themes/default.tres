@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dfvn72ic701oj"]
+
+[ext_resource type="FontFile" uid="uid://djx6fgjpep0bq" path="res://assets/fonts/fusion_pixel/fusion-pixel-10px-monospaced-zh_hans.ttf" id="1_31rkj"]
+
+[sub_resource type="FontVariation" id="FontVariation_qu2dg"]
+base_font = ExtResource("1_31rkj")
+
+[resource]
+default_font = SubResource("FontVariation_qu2dg")
+default_font_size = 10
