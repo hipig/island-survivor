@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhfs8658gp2nr"]
+
+[ext_resource type="Texture2D" uid="uid://bax1xuer1jgpv" path="res://assets/textures/icons/mini/Heart_Outline.png" id="1_455hc"]
+[ext_resource type="Script" uid="uid://fanki01nykyj" path="res://scenes/ui/strength_ui/strength_item.gd" id="2_wm02j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdnx6"]
+atlas = ExtResource("1_455hc")
+region = Rect2(3, 5, 10, 9)
+
+[node name="StrengthItem" type="TextureRect"]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 10.0
+offset_bottom = 9.0
+texture = SubResource("AtlasTexture_vdnx6")
+script = ExtResource("2_wm02j")

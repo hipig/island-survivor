@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://rs67xfqwprce" path="res://scenes/components/health_component.tscn" id="5_cfd3k"]
 [ext_resource type="PackedScene" uid="uid://dpq4g78xcwp4d" path="res://scenes/components/hurt_box_component.tscn" id="6_3l0xa"]
 [ext_resource type="PackedScene" uid="uid://cr1duhhcqis47" path="res://scenes/components/drop_component.tscn" id="7_kel3k"]
-[ext_resource type="Script" uid="uid://crp336opb0cxp" path="res://scripts/resources/drop_data.gd" id="8_wkjxe"]
+[ext_resource type="Script" uid="uid://crp336opb0cxp" path="res://scripts/resources/item/drop_data.gd" id="8_wkjxe"]
 [ext_resource type="Resource" uid="uid://dvvfc15yy1pa1" path="res://resouces/items/wood.tres" id="9_fyb5u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flta1"]

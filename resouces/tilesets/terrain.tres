@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://yudm7dgvw7ln"]
+[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://yudm7dgvw7ln"]
 
 [ext_resource type="Texture2D" uid="uid://cuskgx2l8dpwf" path="res://assets/textures/terrain/base/Coastlines.png" id="1_wvufb"]
 [ext_resource type="Texture2D" uid="uid://dha52e737hke3" path="res://assets/textures/terrain/base/Grass.png" id="2_36h0f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dlk3j0auyhr5x" path="res://scenes/objects/tree/small_tree.tscn" id="5_phyu6"]
 [ext_resource type="PackedScene" uid="uid://brbo7u0xl0k8d" path="res://scenes/objects/rock/rock.tscn" id="6_phyu6"]
 [ext_resource type="Texture2D" uid="uid://dx4630vd56tgv" path="res://assets/textures/terrain/base/Cave entrance_2.png" id="7_n353q"]
+[ext_resource type="Texture2D" uid="uid://dec4wltggpd08" path="res://assets/textures/terrain/base/Cave entrance_1.png" id="8_1ue4x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0v8r"]
 texture = ExtResource("1_wvufb")
@@ -520,32 +521,6 @@ texture = ExtResource("2_36h0f")
 3:7/0 = 0
 4:7/0 = 0
 5:7/0 = 0
-0:8/size_in_atlas = Vector2i(1, 3)
-0:8/0 = 0
-0:8/0/texture_origin = Vector2i(0, -16)
-0:8/0/terrain_set = 0
-0:8/0/terrain = 4
-0:8/0/terrains_peering_bit/right_side = 4
-0:8/0/terrains_peering_bit/top_side = 4
-0:8/0/terrains_peering_bit/top_right_corner = 4
-1:8/size_in_atlas = Vector2i(1, 3)
-1:8/0 = 0
-1:8/0/texture_origin = Vector2i(0, -16)
-1:8/0/terrain_set = 0
-1:8/0/terrain = 4
-1:8/0/terrains_peering_bit/right_side = 4
-1:8/0/terrains_peering_bit/left_side = 4
-1:8/0/terrains_peering_bit/top_left_corner = 4
-1:8/0/terrains_peering_bit/top_side = 4
-1:8/0/terrains_peering_bit/top_right_corner = 4
-2:8/size_in_atlas = Vector2i(1, 3)
-2:8/0 = 0
-2:8/0/texture_origin = Vector2i(0, -16)
-2:8/0/terrain_set = 0
-2:8/0/terrain = 4
-2:8/0/terrains_peering_bit/left_side = 4
-2:8/0/terrains_peering_bit/top_left_corner = 4
-2:8/0/terrains_peering_bit/top_side = 4
 3:8/0 = 0
 3:8/0/terrain_set = 0
 3:8/0/terrain = 4
@@ -582,6 +557,32 @@ texture = ExtResource("2_36h0f")
 9:11/0 = 0
 10:11/0 = 0
 11:11/0 = 0
+0:8/0 = 0
+0:8/0/terrain_set = 0
+0:8/0/terrain = 4
+0:8/0/terrains_peering_bit/right_side = 4
+0:8/0/terrains_peering_bit/top_side = 4
+0:8/0/terrains_peering_bit/top_right_corner = 4
+1:8/0 = 0
+1:8/0/terrain_set = 0
+1:8/0/terrain = 4
+1:8/0/terrains_peering_bit/right_side = 4
+1:8/0/terrains_peering_bit/left_side = 4
+1:8/0/terrains_peering_bit/top_left_corner = 4
+1:8/0/terrains_peering_bit/top_side = 4
+1:8/0/terrains_peering_bit/top_right_corner = 4
+2:8/0 = 0
+2:8/0/terrain_set = 0
+2:8/0/terrain = 4
+2:8/0/terrains_peering_bit/left_side = 4
+2:8/0/terrains_peering_bit/top_left_corner = 4
+2:8/0/terrains_peering_bit/top_side = 4
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phyu6"]
 texture = ExtResource("3_36h0f")
@@ -743,6 +744,10 @@ texture = ExtResource("7_n353q")
 0:0/size_in_atlas = Vector2i(3, 1)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32lgp"]
+texture = ExtResource("8_1ue4x")
+0:0/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -762,3 +767,4 @@ sources/2 = SubResource("TileSetAtlasSource_phyu6")
 sources/3 = SubResource("TileSetScenesCollectionSource_7lubp")
 sources/4 = SubResource("TileSetScenesCollectionSource_n353q")
 sources/5 = SubResource("TileSetAtlasSource_1ue4x")
+sources/6 = SubResource("TileSetAtlasSource_32lgp")

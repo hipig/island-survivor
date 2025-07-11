@@ -18,8 +18,8 @@ func _on_hurted(damage: float, hit_owner: Node2D) -> void:
 	sprite.material.set_shader_parameter("shake_intensity", 0.8)
 	await get_tree().create_timer(0.8).timeout
 	sprite.material.set_shader_parameter("shake_intensity", 0.0)
-
 	
 func _on_died() -> void:
 	drop_component.drop_items(damage_owner)
+	Events.strength_deducted.emit(1)
 	call_deferred("queue_free")

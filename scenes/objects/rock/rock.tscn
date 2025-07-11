@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dpq4g78xcwp4d" path="res://scenes/components/hurt_box_component.tscn" id="4_lqiiy"]
 [ext_resource type="PackedScene" uid="uid://dolilc6aroiyc" path="res://scenes/components/select/selectable_component.tscn" id="4_v3gp0"]
 [ext_resource type="PackedScene" uid="uid://cr1duhhcqis47" path="res://scenes/components/drop_component.tscn" id="5_lqiiy"]
-[ext_resource type="Script" uid="uid://crp336opb0cxp" path="res://scripts/resources/drop_data.gd" id="6_v3gp0"]
+[ext_resource type="Script" uid="uid://crp336opb0cxp" path="res://scripts/resources/item/drop_data.gd" id="6_v3gp0"]
 [ext_resource type="Resource" uid="uid://ci3bolwr7ecoe" path="res://resouces/items/stone.tres" id="7_l0mkr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dd7jg"]

@@ -1,0 +1,239 @@
+[gd_scene load_steps=13 format=3 uid="uid://sy32qrj5j4xe"]
+
+[ext_resource type="Script" uid="uid://bry6xcffv8li5" path="res://scenes/ui/inventory_ui/inventory_ui.gd" id="1_p70uk"]
+[ext_resource type="Texture2D" uid="uid://b3jnqremwd03n" path="res://assets/textures/ui/tab/Tab01_Right_Normal.png" id="2_tpijo"]
+[ext_resource type="Texture2D" uid="uid://cs83hx0u8plby" path="res://assets/textures/icons/Bag.png" id="3_5kg0u"]
+[ext_resource type="PackedScene" uid="uid://caaaqt4eljmn7" path="res://scenes/ui/inventory_ui/inventory_panel.tscn" id="4_5kg0u"]
+[ext_resource type="Resource" uid="uid://ddejfgwmelpsk" path="res://resouces/item_lists/inventory_player.tres" id="5_w86wv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w86wv"]
+atlas = ExtResource("2_tpijo")
+region = Rect2(5, 8, 21, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8o40v"]
+texture = SubResource("AtlasTexture_w86wv")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmwjw"]
+atlas = ExtResource("3_5kg0u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Animation" id="Animation_5kg0u"]
+resource_name = "open"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.254902)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryPanel:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InventoryPanel:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w86wv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryPanel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InventoryPanel:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_8o40v"]
+resource_name = "close"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.254902), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryPanel:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InventoryPanel:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8o40v"]
+_data = {
+&"RESET": SubResource("Animation_w86wv"),
+&"close": SubResource("Animation_8o40v"),
+&"open": SubResource("Animation_5kg0u")
+}
+
+[node name="InventoryUI" type="CanvasLayer"]
+script = ExtResource("1_p70uk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -46.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 40
+
+[node name="OpenButton" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(40, 28)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_8o40v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8o40v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8o40v")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8o40v")
+icon = SubResource("AtlasTexture_fmwjw")
+icon_alignment = 1
+expand_icon = true
+
+[node name="InventoryPanel" parent="." instance=ExtResource("4_5kg0u")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -151.0
+offset_right = 119.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(0, 302)
+inventory_list = ExtResource("5_w86wv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8o40v")
+}

@@ -21,4 +21,5 @@ func _on_hurted(damage: float, hit_owner: Node2D) -> void:
 	
 func _on_died() -> void:
 	drop_component.drop_items(damage_owner)
+	Events.strength_deducted.emit(1)
 	call_deferred("queue_free")

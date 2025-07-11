@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+const INVENTORY_LIST: InventoryList = preload("res://resouces/item_lists/inventory_player.tres")
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var hit_box_component: HitBoxComponent = $HitBoxComponent
@@ -12,13 +14,20 @@ var direction: Vector2 = Vector2.ZERO
 var animate_direction: String = "down"
 var speed: float = 40.0
 
+var total_strength: int = 5
+var strength: int = total_strength
+
+var coin: int = 0
+
 var current_target: Node2D = null
 
 func _ready() -> void:
 	state_machine.start()
+	update_total_strength(total_strength, true)
+	Events.strength_deducted.connect(_on_strength_deducted)
 	
 func item_collect(item: ItemData) -> void:
-	print(item)
+	INVENTORY_LIST.add_item(item)
 	
 func set_interaction_target(target: Node2D) -> void:
 	current_target = target
@@ -47,3 +56,11 @@ func update_direction(dir: Vector2) -> void:
 		else:
 			direction = Vector2.UP
 			animate_direction = "up"
+
+func update_total_strength(total: int, full_all: bool = false) -> void:
+	total_strength = total
+	Events.strength_total_updated.emit(total_strength, full_all)
+
+func _on_strength_deducted(deducte_strength: int) -> void:
+	strength = max(0, strength - deducte_strength)
+	

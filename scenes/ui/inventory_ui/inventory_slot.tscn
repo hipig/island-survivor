@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1ym8poumschk"]
+
+[ext_resource type="Texture2D" uid="uid://ds1lj8t7hgr2p" path="res://assets/textures/ui/box/BGbox_02A.png" id="1_rfd7c"]
+[ext_resource type="Script" uid="uid://b8v8tc0cg4bhq" path="res://scenes/ui/inventory_ui/inventory_slot.gd" id="2_irnfi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34wh5"]
+atlas = ExtResource("1_rfd7c")
+region = Rect2(6, 6, 36, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h0mt"]
+texture = SubResource("AtlasTexture_34wh5")
+texture_margin_left = 7.0
+texture_margin_top = 8.0
+texture_margin_right = 7.0
+texture_margin_bottom = 8.0
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(36, 36)
+offset_right = 36.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_8h0mt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8h0mt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8h0mt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8h0mt")
+script = ExtResource("2_irnfi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 3
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 2
+vertical_alignment = 1
