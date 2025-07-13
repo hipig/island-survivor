@@ -57,6 +57,10 @@ func update_direction(dir: Vector2) -> void:
 			direction = Vector2.UP
 			animate_direction = "up"
 
+func recovery_strength() -> void:
+	strength = total_strength
+	Events.strength_recovered.emit()
+
 func update_total_strength(total: int, full_all: bool = false) -> void:
 	total_strength = total
 	Events.strength_total_updated.emit(total_strength, full_all)

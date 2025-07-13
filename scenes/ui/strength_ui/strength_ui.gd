@@ -17,6 +17,11 @@ func _ready() -> void:
 			
 	Events.strength_total_updated.connect(update_total)
 	Events.strength_deducted.connect(deduct)
+	Events.strength_recovered.connect(recover)
+
+func recover() -> void:
+	current_strength = total_strength
+	update_display()
 
 func deduct(deduct_amount: int = 1) -> void:
 	current_strength = max(0, current_strength - deduct_amount)

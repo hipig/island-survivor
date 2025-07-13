@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://blpaup0np57mc"]
+[gd_scene load_steps=18 format=3 uid="uid://blpaup0np57mc"]
 
 [ext_resource type="Texture2D" uid="uid://c5t4d1h7omasj" path="res://assets/textures/buildings/tent/Tent_2.png" id="1_1ppix"]
 [ext_resource type="Script" uid="uid://bmoq4ugwaaovq" path="res://scenes/buildings/tent/tent.gd" id="1_1611g"]
@@ -58,11 +58,15 @@ region = Rect2(4, 7, 40, 2)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fp68"]
 texture = SubResource("AtlasTexture_usdwj")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgcgp"]
+atlas = ExtResource("4_8ni3g")
+region = Rect2(3, 5, 10, 9)
+
 [node name="Tent" type="StaticBody2D"]
 script = ExtResource("1_1611g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -20)
+position = Vector2(0, -12)
 texture = SubResource("AtlasTexture_yfvs5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -70,7 +74,7 @@ position = Vector2(0, -17)
 shape = SubResource("CapsuleShape2D_1611g")
 
 [node name="SelectableComponent" parent="." instance=ExtResource("2_yfvs5")]
-position = Vector2(0, -51)
+position = Vector2(0, -44)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent"]
 visible = false
@@ -78,7 +82,7 @@ position = Vector2(0, 31.5)
 shape = SubResource("RectangleShape2D_1611g")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(0, -19)
+position = Vector2(0, -13)
 emitting = false
 amount = 5
 texture = SubResource("AtlasTexture_utkyn")
@@ -86,28 +90,37 @@ lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_mgcgp")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(0, -18)
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_8ni3g")
 debug_color = Color(0.212326, 0.634725, 0.237243, 0.42)
 
-[node name="Control" type="Control" parent="."]
+[node name="ProgressControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 41.0
 offset_bottom = 41.0
 
-[node name="ProgressBar" type="ProgressBar" parent="Control"]
-layout_mode = 0
-offset_left = -17.0
-offset_top = -30.0
-offset_right = 17.0
-offset_bottom = -25.0
+[node name="ProgressBar" type="ProgressBar" parent="ProgressControl"]
+layout_mode = 1
+offset_left = -13.0
+offset_top = -44.0
+offset_right = 21.0
+offset_bottom = -39.0
+scale = Vector2(0.8, 0.8)
 theme_override_styles/background = SubResource("StyleBoxTexture_rgdig")
 theme_override_styles/fill = SubResource("StyleBoxTexture_2fp68")
 max_value = 1.0
 step = 0.1
-value = 0.5
 show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="ProgressControl"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -49.0
+offset_right = -9.0
+offset_bottom = -38.0
+texture = SubResource("AtlasTexture_mgcgp")

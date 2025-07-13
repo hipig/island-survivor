@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Island Survivor"
+run/main_scene="uid://budhx8uva0ju5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
